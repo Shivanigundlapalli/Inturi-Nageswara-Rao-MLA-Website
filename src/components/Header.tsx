@@ -183,6 +183,7 @@ export default function Header({ currentTab, setTab }: HeaderProps) {
             </div>
           </div>
         )}
-      </header>
+      </div>
+    </header>
   );
 }
