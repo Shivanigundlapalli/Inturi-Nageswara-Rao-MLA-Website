@@ -112,10 +112,24 @@ export default function ContactView() {
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Upload Document (Optional)</label>
-                <div className="w-full px-4 py-3 rounded-lg border border-slate-300 border-dashed bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer flex items-center justify-center gap-2">
-                  <FileUp className="w-5 h-5 text-slate-400" />
-                  <span className="text-sm text-slate-500">Click to upload supporting file</span>
-                </div>
+                <label className="w-full px-4 py-3 rounded-lg border border-slate-300 border-dashed bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer flex flex-col items-center justify-center gap-2 relative">
+                  <input 
+                    type="file" 
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        const span = e.currentTarget.nextElementSibling?.querySelector('span');
+                        if (span) span.textContent = file.name;
+                      }
+                    }}
+                  />
+                  <div className="flex items-center gap-2 pointer-events-none">
+                    <FileUp className="w-5 h-5 text-amber-500" />
+                    <span className="text-sm text-slate-600 font-medium truncate max-w-[200px] md:max-w-[300px]">Click to upload supporting file</span>
+                  </div>
+                  <span className="text-[10px] text-slate-400 pointer-events-none">PDF, JPG, PNG (Max 5MB)</span>
+                </label>
               </div>
               
               <button type="submit" className="w-full bg-amber-500 hover:bg-amber-600 text-[#0b1a30] font-bold py-3 px-6 rounded-lg shadow-md transition-colors flex items-center justify-center gap-2">
