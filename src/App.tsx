@@ -35,11 +35,9 @@ export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Scroll to top automatically on route transitions (except leadership approach)
+  // Scroll to top automatically on all route transitions
   useEffect(() => {
-    if (location.pathname !== '/leadership') {
-      window.scrollTo(0, 0);
-    }
+    window.scrollTo(0, 0);
   }, [location.pathname]);
 
   // Helper mapping path to active tab ID
