@@ -89,15 +89,13 @@ export default function AboutView() {
           </div>
 
           <div className="flex justify-center lg:justify-end animate-fade-in relative">
-            <div className="w-full max-w-sm sm:max-w-md aspect-square relative overflow-visible bg-[#0c1831]">
-              {/* Decorative glow behind the image since the background is removed */}
-              <div className="absolute inset-0 bg-[#F4B400] blur-[100px] opacity-10 rounded-full" />
-              
+            <div className="w-full max-w-sm sm:max-w-md aspect-[4/3] relative overflow-hidden bg-slate-200 rounded-2xl shadow-2xl border-4 border-[#0c1831] group">
               <img 
-                src={`${portraitImage}?v=2`} 
-                alt="Portrait" 
-                className="w-full h-full object-contain relative z-10 mix-blend-lighten" 
+                src="/gallery/activity-14.png" 
+                alt="Inturi Nageswara Rao" 
+                className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-700" 
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#081B44]/60 to-transparent pointer-events-none z-20" />
             </div>
           </div>
         </div>
@@ -110,8 +108,8 @@ export default function AboutView() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1 aspect-square md:aspect-[4/3] rounded-2xl bg-slate-200 border border-slate-300 flex flex-col items-center justify-center shadow-inner group overflow-hidden relative">
             <img 
-              src="/gallery/activity-14.png" 
-              alt="Party Worker Core Committee" 
+              src="/gallery/activity-13.png" 
+              alt="Agricultural Community Dialogue" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#081B44]/60 to-transparent pointer-events-none" />
