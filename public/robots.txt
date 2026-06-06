@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://inturi-nageswara-rao-mla-website.vercel.app/sitemap.xml
