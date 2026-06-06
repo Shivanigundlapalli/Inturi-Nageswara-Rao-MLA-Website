@@ -272,13 +272,13 @@ export default function KandukurView() {
           </div>
         </div>
 
-        {/* Responsive Masonry Gallery Structure */}
-        <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+        {/* Equal-sized Grid Gallery Structure */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             
             {/* Fallback Behavior Cards for each category */}
-            {/* Note: Real verified images from AP.gov.in and official sources will populate this masonry layout once approved. AI/Stock images are strictly disabled. */}
+            {/* Note: Real verified images from AP.gov.in and official sources will populate this layout once approved. AI/Stock images are strictly disabled. */}
             
-            <div className="break-inside-avoid bg-white border border-slate-200 rounded-2xl p-10 text-center shadow-sm flex flex-col items-center justify-center min-h-[300px] hover:border-[#F4B400]/50 transition-colors">
+            <div className="bg-white border border-slate-200 rounded-2xl p-10 text-center shadow-sm flex flex-col items-center justify-center min-h-[320px] hover:border-[#F4B400]/50 transition-colors">
                <Tractor className="w-8 h-8 text-slate-300 mb-6" />
                <p className="text-lg font-bold font-outfit text-[#081B44] mb-3">Agriculture</p>
                <p className="text-slate-500 font-light text-sm italic mb-6">
@@ -289,7 +289,7 @@ export default function KandukurView() {
                </div>
             </div>
 
-            <div className="break-inside-avoid bg-white border border-slate-200 rounded-2xl p-10 text-center shadow-sm flex flex-col items-center justify-center min-h-[400px] hover:border-[#F4B400]/50 transition-colors">
+            <div className="bg-white border border-slate-200 rounded-2xl p-10 text-center shadow-sm flex flex-col items-center justify-center min-h-[320px] hover:border-[#F4B400]/50 transition-colors">
                <Building2 className="w-8 h-8 text-slate-300 mb-6" />
                <p className="text-lg font-bold font-outfit text-[#081B44] mb-3">Public Infrastructure</p>
                <p className="text-slate-500 font-light text-sm italic mb-6">
@@ -300,7 +300,7 @@ export default function KandukurView() {
                </div>
             </div>
 
-            <div className="break-inside-avoid bg-white border border-slate-200 rounded-2xl p-10 text-center shadow-sm flex flex-col items-center justify-center min-h-[250px] hover:border-[#F4B400]/50 transition-colors">
+            <div className="bg-white border border-slate-200 rounded-2xl p-10 text-center shadow-sm flex flex-col items-center justify-center min-h-[320px] hover:border-[#F4B400]/50 transition-colors">
                <Users className="w-8 h-8 text-slate-300 mb-6" />
                <p className="text-lg font-bold font-outfit text-[#081B44] mb-3">Community Life</p>
                <p className="text-slate-500 font-light text-sm italic mb-6">
@@ -311,7 +311,7 @@ export default function KandukurView() {
                </div>
             </div>
 
-            <div className="break-inside-avoid bg-white border border-slate-200 rounded-2xl p-10 text-center shadow-sm flex flex-col items-center justify-center min-h-[350px] hover:border-[#F4B400]/50 transition-colors">
+            <div className="bg-white border border-slate-200 rounded-2xl p-10 text-center shadow-sm flex flex-col items-center justify-center min-h-[320px] hover:border-[#F4B400]/50 transition-colors">
                <BookOpen className="w-8 h-8 text-slate-300 mb-6" />
                <p className="text-lg font-bold font-outfit text-[#081B44] mb-3">Education</p>
                <p className="text-slate-500 font-light text-sm italic mb-6">
@@ -322,7 +322,7 @@ export default function KandukurView() {
                </div>
             </div>
 
-            <div className="break-inside-avoid bg-white border border-slate-200 rounded-2xl p-10 text-center shadow-sm flex flex-col items-center justify-center min-h-[300px] hover:border-[#F4B400]/50 transition-colors">
+            <div className="bg-white border border-slate-200 rounded-2xl p-10 text-center shadow-sm flex flex-col items-center justify-center min-h-[320px] hover:border-[#F4B400]/50 transition-colors">
                <HeartPulse className="w-8 h-8 text-slate-300 mb-6" />
                <p className="text-lg font-bold font-outfit text-[#081B44] mb-3">Healthcare</p>
                <p className="text-slate-500 font-light text-sm italic mb-6">
@@ -333,7 +333,7 @@ export default function KandukurView() {
                </div>
             </div>
 
-            <div className="break-inside-avoid bg-white border border-slate-200 rounded-2xl p-10 text-center shadow-sm flex flex-col items-center justify-center min-h-[380px] hover:border-[#F4B400]/50 transition-colors">
+            <div className="bg-white border border-slate-200 rounded-2xl p-10 text-center shadow-sm flex flex-col items-center justify-center min-h-[320px] hover:border-[#F4B400]/50 transition-colors">
                <MapPin className="w-8 h-8 text-slate-300 mb-6" />
                <p className="text-lg font-bold font-outfit text-[#081B44] mb-3">Important Locations</p>
                <p className="text-slate-500 font-light text-sm italic mb-6">
