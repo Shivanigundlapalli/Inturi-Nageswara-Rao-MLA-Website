@@ -5,7 +5,6 @@ import {
   TrendingUp, Image as ImageIcon
 } from 'lucide-react';
 import portraitImage from '@/assets/about_portrait.jpg';
-import communityImage from '@/assets/about_community.jpg';
 
 const TIMELINE_EVENTS = [
   {
@@ -109,13 +108,23 @@ export default function AboutView() {
       ================================================ */}
       <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1 aspect-square md:aspect-[4/3] rounded-2xl bg-slate-200 border border-slate-300 flex flex-col items-center justify-center text-slate-400 shadow-inner group overflow-hidden relative">
-            <img 
-              src={communityImage} 
-              alt="Inturi Nageswara Rao with local farmers" 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#081B44]/60 to-transparent pointer-events-none" />
+          <div className="order-2 lg:order-1 flex flex-col sm:flex-row gap-4 sm:gap-6 relative">
+            <div className="flex-1 rounded-2xl bg-slate-200 border border-slate-300 flex flex-col items-center justify-center shadow-lg group overflow-hidden relative">
+              <img 
+                src="/gallery/activity-13.png" 
+                alt="Agricultural Community Dialogue" 
+                className="w-full h-full object-cover aspect-square md:aspect-[3/4] group-hover:scale-105 transition-transform duration-700" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#081B44]/60 to-transparent pointer-events-none" />
+            </div>
+            <div className="flex-1 rounded-2xl bg-slate-200 border border-slate-300 flex flex-col items-center justify-center shadow-lg group overflow-hidden relative sm:mt-12">
+              <img 
+                src="/gallery/activity-14.png" 
+                alt="Party Worker Core Committee" 
+                className="w-full h-full object-cover aspect-square md:aspect-[3/4] group-hover:scale-105 transition-transform duration-700" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#081B44]/60 to-transparent pointer-events-none" />
+            </div>
           </div>
           
           <div className="order-1 lg:order-2 flex flex-col">
