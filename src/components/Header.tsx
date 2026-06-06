@@ -8,24 +8,50 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, MapPin } from 'lucide-react';
 import { PROFILE_DATA } from '../types';
 
+// Isolated component so the main Header doesn't re-render 60 times a second on scroll
+function ScrollProgress() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPx = window.scrollY;
+      const winHeightPx = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress((scrollPx / winHeightPx) * 100);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div 
+      className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-amber-500 to-amber-300 z-50 transition-all duration-100"
+      style={{ width: `${progress}%` }}
+    />
+  );
+}
+
 interface HeaderProps {
   currentTab?: string;
   setTab?: (tab: string) => void;
 }
 
 export default function Header({ currentTab, setTab }: HeaderProps) {
-  const [scrollY, setScrollY] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const pathname = location.pathname;
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      // Only trigger a re-render when crossing the 20px threshold
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
     
     const handleResize = () => {
-      // Close mobile menu automatically when screen resizes to desktop width
       if (window.innerWidth >= 1024 && mobileMenuOpen) {
         setMobileMenuOpen(false);
       }
@@ -55,21 +81,11 @@ export default function Header({ currentTab, setTab }: HeaderProps) {
   ];
 
   return (
-    <header className="sticky top-0 w-full z-[50] flex flex-col shadow-md transform-gpu">
-      {/* Scroll Progress Bar */}
-      <div 
-        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-amber-500 to-amber-300 z-50 transition-all duration-100"
-        style={{
-          width: `${
-            typeof window !== 'undefined'
-              ? (scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
-              : 0
-          }%`
-        }}
-      />
+    <header className="fixed top-0 left-0 w-full z-[9999] flex flex-col shadow-md transform-gpu bg-[#0b1a30]">
+      <ScrollProgress />
 
       {/* TOP INFORMATION BAR */}
-      <div className={`w-full bg-[#071324] border-b border-amber-500/15 py-1.5 md:py-2 px-4 text-[10px] md:text-xs tracking-wider text-slate-300 select-none transition-all duration-300 ${scrollY > 50 ? 'hidden' : 'flex'}`}>
+      <div className={`w-full bg-[#071324] border-b border-amber-500/15 py-1.5 md:py-2 px-4 text-[10px] md:text-xs tracking-wider text-slate-300 select-none transition-all duration-300 ${isScrolled ? 'hidden' : 'flex'}`}>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-1 md:gap-2 w-full">
           <div className="flex items-center gap-2 text-slate-300 text-center md:text-left">
             <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
@@ -88,7 +104,7 @@ export default function Header({ currentTab, setTab }: HeaderProps) {
       {/* NAVIGATION BAR */}
       <div 
         className={`w-full transition-all duration-300 ${
-          scrollY > 20 
+          isScrolled 
             ? 'bg-[#0b1a30]/98 md:py-3 backdrop-blur-md border-b border-amber-500/20' 
             : 'bg-[#0b1a30] md:py-5 border-b border-amber-500/10'
         } py-3 px-4 relative z-40 transform-gpu`}
