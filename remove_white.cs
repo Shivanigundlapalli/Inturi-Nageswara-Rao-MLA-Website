@@ -1,0 +1,1 @@
+using System.Drawing; public class Program2 { public static void Main() { Bitmap bmp = new Bitmap("c:/Users/Charanya/OneDrive/inturi-nageswara-rao-mla-website/src/assets/home_circular.png"); bmp.MakeTransparent(Color.White); bmp.Save("c:/Users/Charanya/OneDrive/inturi-nageswara-rao-mla-website/src/assets/home_circular_transparent.png", System.Drawing.Imaging.ImageFormat.Png); } }

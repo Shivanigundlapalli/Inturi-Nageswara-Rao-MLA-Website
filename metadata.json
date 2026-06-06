@@ -1,0 +1,6 @@
+{
+  "name": "Inturi Nageswara Rao MLA Website",
+  "description": "Official public website for Inturi Nageswara Rao, Member of Legislative Assembly (MLA) for Kandukur Constituency, Andhra Pradesh. Serving with transparent governance and citizen-centric leadership.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
