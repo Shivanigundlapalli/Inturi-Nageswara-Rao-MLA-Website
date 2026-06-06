@@ -5,6 +5,8 @@
 
 import React, { useState, useEffect, Suspense } from 'react';
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from '@vercel/analytics/react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { ArrowUp, MessageCircle } from 'lucide-react';
@@ -94,6 +96,10 @@ export default function App() {
 
       {/* 3. PREMIUM FOOTER DISPATCH */}
       <Footer setTab={setTab} />
+      
+      {/* 4. VERCEL ANALYTICS & SPEED INSIGHTS TRACKING */}
+      <SpeedInsights />
+      <Analytics />
 
     </div>
   );
