@@ -23,9 +23,22 @@ export default function Header({ currentTab, setTab }: HeaderProps) {
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
+    
+    const handleResize = () => {
+      // Close mobile menu automatically when screen resizes to desktop width
+      if (window.innerWidth >= 1024 && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+    
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('resize', handleResize, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [mobileMenuOpen]);
 
   const isTabActive = (path: string) => {
     return pathname === path;
