@@ -146,7 +146,7 @@ const GALLERY_IMAGES: GalleryItem[] = [
   },
   {
     id: 'img-14',
-    src: '/gallery/activity-14.png',
+    src: '/gallery/activity-15.png',
     title: 'Party Worker Core Committee',
     location: 'Constituency Headquarters',
     date: 'Recent',

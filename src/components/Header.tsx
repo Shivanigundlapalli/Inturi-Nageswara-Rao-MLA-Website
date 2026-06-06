@@ -42,10 +42,10 @@ export default function Header({ currentTab, setTab }: HeaderProps) {
   ];
 
   return (
-    <>
+    <header className="sticky top-0 w-full z-[50] flex flex-col shadow-md">
       {/* Scroll Progress Bar */}
       <div 
-        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-amber-500 to-amber-300 z-50 transition-all duration-100"
+        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-amber-500 to-amber-300 z-50 transition-all duration-100"
         style={{
           width: `${
             typeof window !== 'undefined'
@@ -56,14 +56,14 @@ export default function Header({ currentTab, setTab }: HeaderProps) {
       />
 
       {/* TOP INFORMATION BAR */}
-      <div className="w-full bg-[#071324] border-b border-amber-500/15 py-2 px-4 text-xs tracking-wider text-slate-300 select-none">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-          <div className="flex items-center gap-2 text-slate-300">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-medium tracking-normal text-slate-400">Official Portal:</span>
-            <span>Dedicated to Public Service, Constituency Development & Transparent Governance</span>
+      <div className={`w-full bg-[#071324] border-b border-amber-500/15 py-1.5 md:py-2 px-4 text-[10px] md:text-xs tracking-wider text-slate-300 select-none transition-all duration-300 ${scrollY > 50 ? 'hidden' : 'flex'}`}>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-1 md:gap-2 w-full">
+          <div className="flex items-center gap-2 text-slate-300 text-center md:text-left">
+            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+            <span className="font-medium tracking-normal text-slate-400 hidden sm:inline">Official Portal:</span>
+            <span className="line-clamp-1">Dedicated to Public Service & Transparent Governance</span>
           </div>
-          <div className="flex items-center gap-4 text-slate-450 text-slate-400">
+          <div className="flex items-center gap-4 text-slate-400 hidden md:flex">
             <span className="flex items-center gap-1">
               <MapPin className="w-3.5 h-3.5 text-amber-500" />
               Kandukur Constituency, Andhra Pradesh
@@ -73,12 +73,12 @@ export default function Header({ currentTab, setTab }: HeaderProps) {
       </div>
 
       {/* NAVIGATION BAR */}
-      <header 
-        className={`sticky top-0 z-[9999] transition-all duration-300 ${
+      <div 
+        className={`w-full transition-all duration-300 ${
           scrollY > 20 
-            ? 'bg-[#0b1a30]/95 md:py-3 shadow-lg backdrop-blur-md border-b border-amber-500/15' 
-            : 'bg-[#0b1a30] md:py-5 border-b border-amber-500/10 shadow-sm'
-        } py-3 px-4`}
+            ? 'bg-[#0b1a30]/98 md:py-3 backdrop-blur-md border-b border-amber-500/20' 
+            : 'bg-[#0b1a30] md:py-5 border-b border-amber-500/10'
+        } py-3 px-4 relative z-40`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo Brand Frame */}
@@ -86,7 +86,7 @@ export default function Header({ currentTab, setTab }: HeaderProps) {
             to="/"
             className="flex items-center gap-3 cursor-pointer group select-none"
           >
-            {/* Visual Brand Box (Square with rounded corners, solid yellow/gold background) */}
+            {/* Visual Brand Box */}
             <div className="w-10 h-10 rounded-lg bg-amber-500 flex items-center justify-center font-outfit font-black text-[#0b1a30] text-xl tracking-tight shadow-md border border-amber-400/20 relative group-hover:scale-105 transition-transform shrink-0">
               IN
             </div>
@@ -100,36 +100,35 @@ export default function Header({ currentTab, setTab }: HeaderProps) {
             </div>
           </Link>
 
-          {/* Large Screen Navigation Nodes */}
-          <nav className="hidden lg:flex items-center gap-6">
-            {navigationTabs.map((tab) => {
-              const active = isTabActive(tab.path);
-              return (
-                <Link
-                  key={tab.id}
-                  to={tab.path}
-                  className={`relative py-1 text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:text-[#F5B400] ${
-                    active 
-                      ? 'text-[#F5B400] font-semibold border-b-2 border-[#F5B400] shadow-[0_2px_10px_rgba(245,180,0,0.3)]' 
-                      : 'text-white border-b-2 border-transparent hover:border-[#F5B400]/40'
-                  }`}
-                >
-                  {tab.label}
-                </Link>
-              );
-            })}
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {navigationTabs.map((tab) => (
+              <Link
+                key={tab.id}
+                to={tab.path}
+                className={`relative px-4 py-2 font-outfit font-semibold text-sm tracking-wide rounded-md transition-all duration-300 ${
+                  isTabActive(tab.path)
+                    ? 'text-amber-500 bg-white/5'
+                    : 'text-slate-300 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                {tab.label.toUpperCase()}
+                {isTabActive(tab.path) && (
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]" />
+                )}
+              </Link>
+            ))}
           </nav>
 
-          {/* Mini Screen Hamburger */}
-          <button
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="lg:hidden p-2 text-slate-300 hover:text-white transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-1.5 rounded-md bg-slate-800/40 text-slate-300 border border-slate-700/30 hover:text-white hover:bg-slate-800/60 transition-all cursor-pointer"
-            aria-label="Toggle navigation menu"
+            aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
           <div className="lg:hidden fixed top-0 left-0 w-full h-screen bg-[#0b1a30]/98 z-[9999] backdrop-blur-lg flex flex-col p-6 animate-fade-in">
@@ -185,6 +184,5 @@ export default function Header({ currentTab, setTab }: HeaderProps) {
           </div>
         )}
       </header>
-    </>
   );
 }
