@@ -55,7 +55,7 @@ export default function Header({ currentTab, setTab }: HeaderProps) {
   ];
 
   return (
-    <header className="sticky top-0 w-full z-[50] flex flex-col shadow-md">
+    <header className="sticky top-0 w-full z-[50] flex flex-col shadow-md transform-gpu">
       {/* Scroll Progress Bar */}
       <div 
         className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-amber-500 to-amber-300 z-50 transition-all duration-100"
@@ -91,7 +91,7 @@ export default function Header({ currentTab, setTab }: HeaderProps) {
           scrollY > 20 
             ? 'bg-[#0b1a30]/98 md:py-3 backdrop-blur-md border-b border-amber-500/20' 
             : 'bg-[#0b1a30] md:py-5 border-b border-amber-500/10'
-        } py-3 px-4 relative z-40`}
+        } py-3 px-4 relative z-40 transform-gpu`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo Brand Frame */}
