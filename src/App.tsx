@@ -72,7 +72,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans flex flex-col justify-between relative selection:bg-[#F4B400] selection:text-[#081B44] overflow-x-hidden w-full">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans flex flex-col justify-between relative selection:bg-[#F4B400] selection:text-[#081B44]">
       
       {/* 1. STICKY BRAND HEADER */}
       <Header currentTab={currentTab} setTab={setTab} />
