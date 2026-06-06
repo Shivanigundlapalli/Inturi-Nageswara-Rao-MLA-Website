@@ -3,7 +3,6 @@ import {
   ShieldCheck, Eye, Compass, TrendingUp, Handshake, Users, 
   Leaf, Scale, UserCheck, MessageSquare, Landmark, Settings 
 } from 'lucide-react';
-import portraitImage from '@/assets/leadership_hero.jpg';
 
 export default function LeadershipView() {
   return (
@@ -39,7 +38,7 @@ export default function LeadershipView() {
               {/* Main Image Container perfectly aligned */}
               <div className="rounded-[2rem] border-4 border-[#F4B400]/40 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] hover:border-[#F4B400]/80 transition-colors duration-500 relative overflow-hidden group bg-[#0c1831] z-10">
                 <img 
-                  src={`${portraitImage}?v=2`} 
+                  src="/gallery/leadership-hero-real.png" 
                   alt="Inturi Nageswara Rao Leadership Journey" 
                   className="w-full h-auto object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out opacity-95" 
                 />
