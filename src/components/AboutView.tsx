@@ -89,13 +89,13 @@ export default function AboutView() {
           </div>
 
           <div className="flex justify-center lg:justify-end animate-fade-in relative">
-            <div className="w-full max-w-sm sm:max-w-md aspect-[3/4] relative overflow-hidden bg-slate-200 rounded-2xl shadow-2xl border-4 border-[#0c1831] group">
+            <div className="w-full max-w-sm sm:max-w-md relative overflow-hidden bg-slate-200 rounded-2xl shadow-2xl border-4 border-[#0c1831] group">
               <img 
                 src="/gallery/about-hero-portrait.png" 
                 alt="Inturi Nageswara Rao" 
-                className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-700 object-top" 
+                className="w-full h-auto relative z-10 group-hover:scale-[1.02] transition-transform duration-700" 
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#081B44]/60 to-transparent pointer-events-none z-20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#081B44]/40 to-transparent pointer-events-none z-20" />
             </div>
           </div>
         </div>
